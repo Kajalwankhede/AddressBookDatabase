@@ -145,3 +145,17 @@ UC 7- Ability to understand the size of address book by City and State
    1 row in set (1.17 sec)
 
 _____________________________________________________________________________________________________________
+UC 8- Ability to retrieve entries sorted alphabetically by Person’s name for a given city.
+
+
+     mysql> SELECT * FROM ADDRESSBOOK ORDER BY FirstName;
+     +-----------+----------+----------+----------+-------------+--------+-------------+--------------+
+     | FirstName | LastName | Address  | City     | State       | Zip    | PhoneNumber | Email        |
+     +-----------+----------+----------+----------+-------------+--------+-------------+--------------+
+     | Kajal     | Wankhede | Nagpur   | Nagpur   | Maharashtra | 440024 | 7218448782  | kk@gmail.com |
+     | Payal     | Sinha    | Banglore | Banglore | Karnataka   | 412422 | 8976545678  | ps@gmail.com |
+     | Trusha    | Bawane   | Pune     | Pune     | Maharashtra | 441122 | 7218448782  | kk@gmail.com |
+     +-----------+----------+----------+----------+-------------+--------+-------------+--------------+
+     3 rows in set (0.31 sec)
+
+________________________________________________________________________________________________________________

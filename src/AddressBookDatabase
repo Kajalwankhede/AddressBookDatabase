@@ -23,3 +23,23 @@ mysql> show databases;
 mysql> use addressbook_service;
 Database changed
 ______________________________________________________________________________________________________________
+UC 2 - Ability to create a AddressBook Table with first and last names, address, city, state, zip,
+       phone number and email as its attributes.
+
+       mysql> CREATE TABLE AddressBook(
+           -> FirstName VARCHAR(30) NOT NULL,
+           -> LastName VARCHAR(40) NOT NULL,
+           -> Address VARCHAR(100) NOT NULL,
+           -> City VARCHAR(30) NOT NULL,
+           -> State VARCHAR(30) NOT NULL,
+           -> PhoneNumber Varchar(10) NOT NULL,
+           -> Email VARCHAR(40) NOT NULL);
+       Query OK, 0 rows affected (5.06 sec)
+       mysql> SHOW TABLES;
+       +-------------------------------+
+       | Tables_in_addressbook_service |
+       +-------------------------------+
+       | addressbook                   |
+       +-------------------------------+
+       1 row in set (0.28 sec)
+________________________________________________________________________________________________________________

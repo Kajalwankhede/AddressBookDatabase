@@ -1,0 +1,25 @@
+UC 1- Ability to create a Address Book Service DB Use SQL Client to create DB.
+______________________________________________________________________________________________________________________
+mysql> Create database AddressBook_Service;
+Query OK, 1 row affected (1.29 sec)
+
+mysql> show databases;
++---------------------+
+| Database            |
++---------------------+
+| addressbook_service |
+| country             |
+| information_schema  |
+| kajal               |
+| mysql               |
+| payroll_service     |
+| performance_schema  |
+| sakila              |
+| sys                 |
+| world               |
++---------------------+
+10 rows in set (0.48 sec)
+
+mysql> use addressbook_service;
+Database changed
+______________________________________________________________________________________________________________

@@ -61,4 +61,24 @@ mysql> select * from addressbook;
 +-----------+----------+---------+--------+-------------+------+-------------+--------------+
 2 rows in set (0.00 sec)
 
-_______________________________________________________________________________________________________________
+______________________________________________________________________________________________________________
+UC 4 - Ability to edit existing contact person using their name.
+
+     mysql> update addressbook set Zip = '440024' where FirstName= 'Kajal';
+     Query OK, 1 row affected (0.13 sec)
+     Rows matched: 1  Changed: 1  Warnings: 0
+
+     mysql> update addressbook set Zip = '441024' where FirstName= 'Sonu';
+     Query OK, 1 row affected (0.07 sec)
+     Rows matched: 1  Changed: 1  Warnings: 0
+
+     mysql> select * from addressbook;
+     +-----------+----------+---------+--------+-------------+--------+-------------+--------------+
+     | FirstName | LastName | Address | City   | State       | Zip    | PhoneNumber | Email        |
+     +-----------+----------+---------+--------+-------------+--------+-------------+--------------+
+     | Kajal     | Wankhede | Nagpur  | Nagpur | Maharashtra | 440024 | 7218448782  | kk@gmail.com |
+     | Sonu      | Gaikwad  | Delhi   | Delhi  | Maharashtra | 441024 | 7218448782  | kk@gmail.com |
+     +-----------+----------+---------+--------+-------------+--------+-------------+--------------+
+     2 rows in set (0.03 sec)
+
+______________________________________________________________________________________________________________

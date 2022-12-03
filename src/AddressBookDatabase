@@ -245,3 +245,93 @@ UC 11-Ability to add person to both Friend and Family
   5 rows in set (0.00 sec)
 
 _____________________________________________________________________________________________________________________________________
+UC 11 - Draw the ER Diagram for Address Book Service DB - Identifies the Entities – Entities can be Identified
+        using Normalization Technique - Check each attribute and see if they are Composite or Multi-  Valued.
+
+     mysql> CREATE TABLE UserData(
+           -> UserId INT NOT NULL AUTO_INCREMENT,
+           ->FirstName VARCHAR(100) NOT NULL,
+           ->LastName VARCHAR(100) NOT NULL,,
+           ->Name VARCHAR(100) NOT NULL,
+           ->PRIMARY KEY(UserId)
+            ->);
+     Query OK, 0 rows affected (0.21 sec)
+     mysql> describe userdata;
+     +-----------+--------------+------+-----+---------+----------------+
+     | Field     | Type         | Null | Key | Default | Extra          |
+     +-----------+--------------+------+-----+---------+----------------+
+     | UserId    | int          | NO   | PRI | NULL    | auto_increment |
+     | FirstName | varchar(100) | NO   |     | NULL    |                |
+     | LastName  | varchar(100) | NO   |     | NULL    |                |
+     | Name      | varchar(100) | NO   |     | NULL    |                |
+     +-----------+--------------+------+-----+---------+----------------+
+     4 rows in set (0.10 sec)
+
+     INSERT INTO UserData(FirstName,LastName,Name)VALUES ('Sonu','Wankhede','Kajalwankhede');
+       Query OK, 1 rows affected (0.29 sec)
+       INSERT INTO UserData(FirstName,LastName,Name)VALUES ('Sunny','Disuza','sunnyDisuza');
+              Query OK, 1 rows affected (0.29 sec)
+
+            mysql> CREATE TABLE PhoneDetails(
+                -> UserId INT NOT NULL,
+                -> PhoneNumber VARCHAR(20),
+                -> FOREIGN KEY(UserId ) REFERENCES UserData(UserId )
+                -> );
+              Query OK, 0 rows affected (0.59 sec)
+
+         mysql> INSERT INTO PhoneDetails VALUES (1,'8800997766');
+          Query OK, 1 rows affected (0.15 sec)
+
+          mysql> INSERT INTO PhoneDetails VALUES (1,'7800997766');
+                    Query OK, 1 rows affected (0.15 sec)
+
+          mysql> INSERT INTO PhoneDetails VALUES (2,'7800997766');
+                    Query OK, 1 rows affected (0.15 sec)
+
+                 mysql> CREATE TABLE AddressTable(
+                    ->UserId INT NOT NULL,
+                    -> Address VARCHAR(100) NOT NULL,
+                    ->City VARCHAR(50) NOT NULL,
+                    -> Zip VARCHAR(20) NOT NULL,
+                    -> State VARCHAR(100) NOT NULL,
+                    -> FOREIGN KEY(UserId ) REFERENCES user_name(UserId )
+                    -> );
+                 Query OK, 0 rows affected (0.30 sec)
+
+         mysql>INSERT INTO AddressTable VALUES (1,'Nagpur','Nagpur','Maharashtra',440032);
+           Query OK, 1 rows affected (0.15 sec)
+         mysql>INSERT INTO AddressTable VALUES (2,'Mumbai','Mumbai','Maharashtra',410032);
+           Query OK, 1 rows affected (0.15 sec)
+
+                 mysql> select * from addresstable;
+                 +--------+---------+--------+-------------+--------+
+                 | UserId | Address | City   | Zip         | State  |
+                 +--------+---------+--------+-------------+--------+
+                 |      1 | Nagpur  | Nagpur | Maharashtra | 440032 |
+                 |      2 | Mumbai  | Mumbai | Maharashtra | 410032 |
+                 +--------+---------+--------+-------------+--------+
+                 2 rows in set (0.43 sec)
+
+
+              mysql>  CREATE TABLE RelationType1(
+                  ->UserId INT NOT NULL,
+                  ->TypeId INT NOT NULL AUTO_INCREMENT,
+                  ->TypeName VARCHAR(30) NOT NULL,
+                  ->PRIMARY KEY(TypeId),
+                  -> FOREIGN KEY(UserId ) REFERENCES UserData(UserId )
+                  -> );
+                 Query OK, 0 rows affected (0.36 sec)
+
+                 mysql> INSERT INTO RelationType1(TypeName)VALUES('Family'),('Friends');
+                 Query OK, 2 rows affected (0.06 sec)
+                 mysql> describe relationtype1;
+                 +----------+-------------+------+-----+---------+----------------+
+                 | Field    | Type        | Null | Key | Default | Extra          |
+                 +----------+-------------+------+-----+---------+----------------+
+                 | UserId   | int         | NO   | MUL | NULL    |                |
+                 | TypeId   | int         | NO   | PRI | NULL    | auto_increment |
+                 | TypeName | varchar(30) | NO   |     | NULL    |                |
+                 +----------+-------------+------+-----+---------+----------------+
+                 3 rows in set (0.03 sec)
+
+ _____________________________________________________________________________________________________________________________________
